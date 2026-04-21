@@ -53,6 +53,19 @@
   font-weight: var(--font-weight-bold);
 }
 
-.event-buy-button:hover {
+.event-buy-button:not(:disabled):hover {
   background-color: var(--color-accent-hover);
+}
+
+.event-buy-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.status-sold-out {
+  color: #9c2121;
+}
+
+.status-available {
+  color: #1d633a;
 }

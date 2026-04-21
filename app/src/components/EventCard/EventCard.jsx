@@ -1,6 +1,8 @@
 import "./EventCard.css";
 
 export default function EventCard({ event }) {
+  const isSoldOut = event.ticketsAvailable === 0;
+
   return (
     <li className="event-card" key={event.id}>
       <span className="event-category">{event.category}</span>
@@ -19,14 +21,18 @@ export default function EventCard({ event }) {
           <span className="event-emoji">💵 </span>
           {event.price === 0 ? "Free" : `€${event.price}`}
         </p>
-        <p className="event-tickets">
-          {event.ticketsAvailable === 0
-            ? "Sold out"
-            : `${event.ticketsAvailable} tickets left`}
+        <p
+          className={
+            isSoldOut
+              ? "event-tickets status-sold-out"
+              : "event-tickets status-available"
+          }
+        >
+          {isSoldOut ? "Sold out" : `${event.ticketsAvailable} tickets left`}
         </p>
       </div>
-      <button className="event-buy-button" type="button">
-        Buy ticket
+      <button className="event-buy-button" type="button" disabled={isSoldOut}>
+        {isSoldOut ? "Not available" : "Buy ticket"}
       </button>
     </li>
   );
