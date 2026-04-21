@@ -29,9 +29,16 @@
   font-size: 1.25rem;
 }
 
-.event-category,
 .event-tickets {
   font-weight: var(--font-weight-bold);
+}
+
+.event-category {
+  background-color: var(--color-accent-hover);
+  padding: 4px 8px;
+  border-radius: var(--radius-m);
+  width: fit-content;
+  color: var(--color-accent);
 }
 
 .event-buy-button {
