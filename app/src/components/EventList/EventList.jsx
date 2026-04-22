@@ -12,6 +12,16 @@ export default function EventList() {
 
   const categories = [];
 
+  if (events.length === 0) {
+    return (
+      <>
+        <div className="no-data">
+          <p>No events available right now. Check back later!</p>
+        </div>
+      </>
+    );
+  }
+
   events.forEach((event) => {
     if (!categories.includes(event.category)) {
       categories.push(event.category);

@@ -25,3 +25,8 @@ p {
 .results-count {
   color: #fff;
 }
+
+.no-data {
+  background-color: #fff;
+  padding: 4px 30px;
+}
