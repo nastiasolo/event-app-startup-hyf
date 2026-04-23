@@ -84,23 +84,25 @@
 .tab-button {
   background: transparent;
   border: none;
-  border-bottom: var(--border-standard);
+  border-bottom: 2px solid transparent;
   color: var(--color-accent);
   padding: 8px 16px;
   cursor: pointer;
   transition: background-color var(--transition-speed);
+  opacity: 0.6;
 }
 
 .tab-button:hover {
+  opacity: 1;
   background-color: var(--color-accent-hover);
 }
 
 .tab-button.active {
+  opacity: 1;
   background-color: var(--color-accent-hover);
   border: none;
   border-bottom: 2px solid var(--color-accent);
-  opacity: 0.5;
-  cursor: not-allowed;
+  cursor: default;
 }
 
 .event-description-tab {
