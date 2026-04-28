@@ -4,7 +4,7 @@
   padding: 12px;
   border: var(--border-standard);
   border-radius: var(--radius-l);
-  flex: 1;
+  flex: 0 1 350px;
   gap: var(--gap-m);
   justify-content: space-around;
   transition: scale var(--transition-speed);
@@ -19,7 +19,13 @@
   color: var(--color-accent);
 }
 
-.event-description {
+.event-content {
+  display: flex;
+  flex-direction: column;
+  min-height: 140px;
+}
+
+.event-details {
   display: flex;
   flex-direction: column;
   gap: var(--gap-s);
@@ -29,9 +35,16 @@
   font-size: 1.25rem;
 }
 
-.event-category,
 .event-tickets {
   font-weight: var(--font-weight-bold);
+}
+
+.event-category {
+  background-color: var(--color-accent-hover);
+  padding: 4px 8px;
+  border-radius: var(--radius-m);
+  width: fit-content;
+  color: var(--color-accent);
 }
 
 .event-buy-button {
@@ -46,6 +59,65 @@
   font-weight: var(--font-weight-bold);
 }
 
-.event-buy-button:hover {
+.event-buy-button:not(:disabled):hover {
   background-color: var(--color-accent-hover);
+}
+
+.event-buy-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.status-sold-out {
+  color: #9c2121;
+}
+
+.status-available {
+  color: #1d633a;
+}
+
+.tabs-menu {
+  display: flex;
+  gap: 10px;
+}
+
+.tab-button {
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  color: var(--color-accent);
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: background-color var(--transition-speed);
+  opacity: 0.6;
+}
+
+.tab-button:hover {
+  opacity: 1;
+  background-color: var(--color-accent-hover);
+}
+
+.tab-button.active {
+  opacity: 1;
+  background-color: var(--color-accent-hover);
+  border: none;
+  border-bottom: 2px solid var(--color-accent);
+  cursor: default;
+}
+
+.event-description-tab {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-s);
+}
+
+.description-text {
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.ticket-stats {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-s);
 }

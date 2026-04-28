@@ -1,18 +1,62 @@
+import { useState } from "react";
 import events from "../../data/events.js";
 import EventCard from "../EventCard/EventCard.jsx";
 import "./EventList.css";
 import EventDetail from "../EventDetail/EventDetail.jsx";
-// TODO: add a "Buy ticket" button to each event card
+import CategoryFilter from "../CategoryFilter/CategoryFilter.jsx";
+
 // TODO: replace the mock data import with a fetch call to GET /events
 
 export default function EventList() {
+  const [selectedCategory, setSelectedCategory] = useState("All");
+
+  const categories = [];
+
+  if (events.length === 0) {
+    return (
+      <>
+        <div className="no-data">
+          <p>No events available right now. Check back later!</p>
+        </div>
+      </>
+    );
+  }
+
+  events.forEach((event) => {
+    if (!categories.includes(event.category)) {
+      categories.push(event.category);
+    }
+  });
+
+  const filteredEvents =
+    selectedCategory === "All"
+      ? events
+      : events.filter((event) => event.category === selectedCategory);
+
   return (
     <>
-      <ul className="event-list">
-        {events.map((event) => (
-          <EventCard key={event.id} event={event} />
-        ))}
-      </ul>
+      <div className="event-page-container">
+        <div className="list-toolbar">
+          <span className="results-count">
+            {filteredEvents.length}
+            {filteredEvents.length === 1 ? " event" : " events"}
+          </span>
+          <CategoryFilter
+            categories={categories}
+            selectedCategory={selectedCategory}
+            onCategoryChange={setSelectedCategory}
+          />
+        </div>
+        <ul className="event-list">
+          {filteredEvents.map((event) => (
+            <EventCard key={event.id} event={event} />
+          ))}
+        </ul>
+
+        {filteredEvents.length === 0 && (
+          <p>No events found in this category.</p>
+        )}
+      </div>
     </>
   );
 }
