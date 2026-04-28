@@ -50,3 +50,39 @@ p {
   background-color: #fff;
   padding: 4px 30px;
 }
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  background-color: var(--color-accent);
+  padding: 12px;
+  margin-top: 20px;
+}
+
+.pagination-btn {
+  background-color: transparent;
+  color: #fff;
+  padding: 6px 16px;
+  border: 1px solid white;
+  border-radius: var(--radius-m);
+  cursor: pointer;
+  transition: all var(--transition-speed);
+}
+
+.pagination-btn:hover:not(:disabled) {
+  scale: 1.05;
+}
+
+.pagination-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.page-info {
+  text-align: center;
+  background: #f8f9fa;
+  padding: 6px 16px;
+  border-radius: var(--radius-m);
+}

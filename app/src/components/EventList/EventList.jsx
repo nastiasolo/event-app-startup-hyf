@@ -12,6 +12,9 @@ export default function EventList() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
 
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 6;
+
   useEffect(() => {
     const fetchEvents = async () => {
       try {
@@ -34,16 +37,26 @@ export default function EventList() {
 
   const categories = [];
 
+  const filteredEvents =
+    selectedCategory === "All"
+      ? events
+      : events.filter((event) => event.category === selectedCategory);
+
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = filteredEvents.slice(indexOfFirstItem, indexOfLastItem);
+  const totalPages = Math.ceil(filteredEvents.length / itemsPerPage);
+
+  const handleSearchChange = (e) => {
+    setSearchTerm(e.target.value);
+    setCurrentPage(1);
+  };
+
   events.forEach((event) => {
     if (!categories.includes(event.category)) {
       categories.push(event.category);
     }
   });
-
-  const filteredEvents =
-    selectedCategory === "All"
-      ? events
-      : events.filter((event) => event.category === selectedCategory);
 
   return (
     <>
@@ -64,7 +77,10 @@ export default function EventList() {
             <CategoryFilter
               categories={categories}
               selectedCategory={selectedCategory}
-              onCategoryChange={setSelectedCategory}
+              onCategoryChange={(cat) => {
+                setSelectedCategory(cat);
+                setCurrentPage(1);
+              }}
             />
           </div>
         </div>
@@ -78,11 +94,34 @@ export default function EventList() {
               <p>No events found in the "{selectedCategory}" category.</p>
             </div>
           ) : (
-            <ul className="event-list">
-              {filteredEvents.map((event) => (
-                <EventCard key={event.id} event={event} />
-              ))}
-            </ul>
+            <>
+              <ul className="event-list">
+                {currentItems.map((event) => (
+                  <EventCard key={event.id} event={event} />
+                ))}
+              </ul>
+              {totalPages > 1 && (
+                <div className="pagination">
+                  <button
+                    className="pagination-btn"
+                    disabled={currentPage === 1}
+                    onClick={() => setCurrentPage(currentPage - 1)}
+                  >
+                    Prev
+                  </button>
+                  <span className="page-info">
+                    {currentPage} / {totalPages}
+                  </span>
+                  <button
+                    className="pagination-btn"
+                    disabled={currentPage === totalPages}
+                    onClick={() => setCurrentPage(currentPage + 1)}
+                  >
+                    Next
+                  </button>
+                </div>
+              )}
+            </>
           )}
         </div>
       </div>

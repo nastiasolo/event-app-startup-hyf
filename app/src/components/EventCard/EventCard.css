@@ -121,3 +121,7 @@
   flex-direction: column;
   gap: var(--gap-s);
 }
+
+.description-text {
+  font-size: 0.85rem;
+}
