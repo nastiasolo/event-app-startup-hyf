@@ -1,0 +1,74 @@
+.login-card {
+  background-color: var(--color-bg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  border: var(--border-standard);
+  border-radius: var(--radius-l);
+  margin: 60px auto;
+  max-width: 400px;
+  gap: 10px;
+}
+
+.login-title {
+  color: var(--color-accent);
+  text-transform: uppercase;
+}
+
+.login-description {
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.login-input {
+  padding: 8px 14px;
+  border: var(--border-standard);
+  border-radius: var(--radius-m);
+}
+
+.login-submit-btn {
+  color: var(--color-bg);
+  background-color: var(--color-accent);
+  padding: 10px;
+  border: none;
+  border-radius: var(--radius-m);
+  cursor: pointer;
+  transition: all var(--transition-speed);
+}
+
+.login-submit-btn:hover {
+  scale: 1.05;
+}
+
+.error-banner {
+  background-color: #fff5f5;
+  color: #c53030;
+  padding: 10px;
+  border-radius: var(--radius-m);
+  border: 1px solid #feb2b2;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.register-description {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.sign-up-link {
+  color: var(--color-accent);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.sign-up-link:hover {
+  text-decoration: underline;
+}
