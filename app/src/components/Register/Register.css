@@ -1,0 +1,44 @@
+.register-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  background-color: var(--color-bg);
+  margin: 60px auto;
+  padding: 50px 30px;
+  max-width: 500px;
+  border: var(--border-standard);
+  border-radius: var(--radius-l);
+}
+
+.register-title {
+  color: var(--color-accent);
+  text-transform: uppercase;
+}
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.register-input {
+  padding: 6px 14px;
+  border: var(--border-standard);
+  border-radius: var(--radius-m);
+}
+
+.register-submit-btn {
+  color: var(--color-bg);
+  background-color: var(--color-accent);
+  padding: 10px;
+  border: none;
+  border-radius: var(--radius-m);
+  cursor: pointer;
+  transition: all var(--transition-speed);
+}
+
+.register-submit-btn:hover {
+  scale: 1.05;
+}
