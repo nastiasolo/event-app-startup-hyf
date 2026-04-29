@@ -28,8 +28,12 @@ export default function Layout() {
 
           {user ? (
             <>
-              <span>{user.email}</span>
-              <button onClick={logout}>Sign out</button>
+              <div className="user-container">
+                <span className="user-nav">{user.email}</span>
+                <button className="logout-btn" onClick={logout}>
+                  Sign out
+                </button>
+              </div>
             </>
           ) : (
             <div className="login-container">

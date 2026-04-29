@@ -28,3 +28,28 @@
   font-weight: 800;
   font-size: 1.3rem;
 }
+
+.user-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-s);
+}
+
+.user-nav {
+  color: var(--color-accent);
+  font-size: 0.8rem;
+}
+
+.logout-btn {
+  background-color: transparent;
+  color: var(--color-accent);
+  border: var(--border-standard);
+  border-radius: var(--radius-m);
+  padding: 2px;
+  cursor: pointer;
+  transition: all var(--transition-speed);
+}
+
+.logout-btn:hover {
+  scale: 1.05;
+}
