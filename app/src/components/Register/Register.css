@@ -7,7 +7,7 @@
   background-color: var(--color-bg);
   margin: 60px auto;
   padding: 50px 30px;
-  max-width: 500px;
+  max-width: 400px;
   border: var(--border-standard);
   border-radius: var(--radius-l);
 }
@@ -24,7 +24,7 @@
 }
 
 .register-input {
-  padding: 6px 14px;
+  padding: 8px 14px;
   border: var(--border-standard);
   border-radius: var(--radius-m);
 }
