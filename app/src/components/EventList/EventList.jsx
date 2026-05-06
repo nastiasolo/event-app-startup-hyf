@@ -1,10 +1,7 @@
 import { useState, useEffect } from "react";
 import EventCard from "../EventCard/EventCard.jsx";
 import "./EventList.css";
-// import EventDetail from "../EventDetail/EventDetail.jsx";
 import CategoryFilter from "../CategoryFilter/CategoryFilter.jsx";
-
-// TODO: replace the mock data import with a fetch call to GET /events
 
 export default function EventList() {
   const [events, setEvents] = useState([]);

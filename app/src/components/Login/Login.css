@@ -8,7 +8,7 @@
   border: var(--border-standard);
   border-radius: var(--radius-l);
   margin: 60px auto;
-  max-width: 400px;
+  max-width: 500px;
   gap: 10px;
 }
 
@@ -23,12 +23,16 @@
 }
 
 .login-form {
+  width: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: 20px;
 }
 
 .login-input {
+  width: 66%;
   padding: 8px 14px;
   border: var(--border-standard);
   border-radius: var(--radius-m);

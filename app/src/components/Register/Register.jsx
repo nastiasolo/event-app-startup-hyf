@@ -2,10 +2,6 @@ import { useState } from "react";
 import { useAuth } from "../../context/AuthContext.jsx";
 import { useNavigate } from "react-router-dom";
 import "./Register.css";
-// TODO: build a register form with relevant fields
-// TODO: call register(email, password) from useAuth() on submit
-// TODO: show a clear error message if registration fails
-// TODO: redirect to the event list on success
 
 export default function Register() {
   const [email, setEmail] = useState("");
