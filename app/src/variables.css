@@ -4,8 +4,8 @@
   --color-accent-soft: rgba(41, 58, 125, 0.2);
   --color-accent-hover: rgba(41, 58, 125, 0.4);
   --color-bg: white;
-
-  --border-standard: 2px solid darkblue;
+  --color-error: #ff4d4f;
+  --border-standard: 2px solid rgb(41, 58, 125);
   --radius-l: 12px;
   --radius-m: 10px;
 

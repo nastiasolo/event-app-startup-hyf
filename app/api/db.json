@@ -1,5 +1,11 @@
 {
-  "users": [],
+  "users": [
+    {
+      "email": "ag.solodova@gmail.com",
+      "password": "$2a$10$.VsD4c/vxhBjR..IOs36ZeIF7mhWU/mOiNUwfgIefLKYvNkAes1MC",
+      "id": 1
+    }
+  ],
   "events": [
     {
       "id": 1,

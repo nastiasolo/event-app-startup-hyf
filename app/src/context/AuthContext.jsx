@@ -1,17 +1,24 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
 import api from "../api.js";
 
 const AuthContext = createContext(null);
 
 export function AuthProvider({ children }) {
-  const [user, setUser] = useState(() => {
-    const stored = localStorage.getItem("user");
-    return stored ? JSON.parse(stored) : null;
-  });
+  const [user, setUser] = useState(null);
+  const [token, setToken] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
-  const [token, setToken] = useState(() => {
-    return localStorage.getItem("token") || null;
-  });
+  useEffect(() => {
+    const storedUser = localStorage.getItem("user");
+    const storedToken = localStorage.getItem("token");
+
+    if (storedUser && storedToken) {
+      setUser(JSON.parse(storedUser));
+      setToken(storedToken);
+    }
+
+    setIsLoading(false);
+  }, []);
 
   async function login(email, password) {
     const response = await fetch(api("/login"), {
@@ -29,16 +36,26 @@ export function AuthProvider({ children }) {
   }
 
   async function register(email, password) {
-    // TODO: POST to api("/register") with { email, password }
-    // TODO: if the response is not ok, throw an error
-    // TODO: destructure { accessToken, user } from the response JSON
-    // TODO: call `persist` with accessToken and user to save the session
+    const response = await fetch(api("/register"), {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email, password }),
+    });
+
+    if (!response.ok) {
+      throw new Error("Registration failed");
+    }
+
+    const { accessToken, user } = await response.json();
+
+    persist(accessToken, user);
   }
 
   function logout() {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
-    // TODO add the missing logout logic here — clear the token and user from state as well
+    setToken(null);
+    setUser(null);
   }
 
   function persist(accessToken, user) {
@@ -46,6 +63,7 @@ export function AuthProvider({ children }) {
     localStorage.setItem("user", JSON.stringify(user));
     setToken(accessToken);
     setUser(user);
+    setIsLoading(false);
   }
 
   return (

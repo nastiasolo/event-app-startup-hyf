@@ -1,0 +1,55 @@
+.navigation {
+  background-color: var(--color-bg);
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 100px;
+  box-sizing: border-box;
+}
+
+.login-container {
+  display: flex;
+  gap: 20px;
+}
+
+.link {
+  text-decoration: none;
+  color: var(--color-accent);
+  transition: all var(--transition-speed);
+}
+
+.link:hover {
+  scale: 1.05;
+}
+
+.event-link {
+  text-transform: uppercase;
+  font-weight: 800;
+  font-size: 1.3rem;
+}
+
+.user-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-s);
+}
+
+.user-nav {
+  color: var(--color-accent);
+  font-size: 0.8rem;
+}
+
+.logout-btn {
+  background-color: transparent;
+  color: var(--color-accent);
+  border: var(--border-standard);
+  border-radius: var(--radius-m);
+  padding: 2px;
+  cursor: pointer;
+  transition: all var(--transition-speed);
+}
+
+.logout-btn:hover {
+  scale: 1.05;
+}
