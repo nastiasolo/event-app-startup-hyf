@@ -7,6 +7,7 @@ export default function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [serverError, setServerError] = useState(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const { register } = useAuth();
   const navigate = useNavigate();
@@ -21,13 +22,15 @@ export default function Register() {
       ? "Password must be at least 6 characters long."
       : null;
 
-  const isFormInvalid = !!emailError || !!passwordError || !email || !password;
+  const isFormInvalid =
+    !!emailError || !!passwordError || !email || !password || isSubmitting;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (isFormInvalid) return;
 
     setServerError(null);
+    setIsSubmitting(true);
 
     try {
       await register(email, password);
@@ -35,6 +38,7 @@ export default function Register() {
       navigate("/events");
     } catch (err) {
       setServerError(err.message || "Something went wrong with registration");
+      setIsSubmitting(false);
     }
   };
 
@@ -51,7 +55,8 @@ export default function Register() {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
-          className={`register-input ${passwordError ? "input-error" : ""}`}
+          disabled={isSubmitting}
+          className={`register-input ${emailError ? "input-error" : ""}`}
         />
         {emailError && <span className="validation-text">{emailError}</span>}
         <input
@@ -60,6 +65,7 @@ export default function Register() {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
+          disabled={isSubmitting}
           className={`register-input ${passwordError ? "input-error" : ""}`}
         />
         {passwordError && (
@@ -70,7 +76,7 @@ export default function Register() {
           className="register-submit-btn"
           disabled={isFormInvalid}
         >
-          Create Account
+          {isSubmitting ? "Creating account..." : "Create Account"}
         </button>
       </form>
     </div>

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useAuth } from "../../context/AuthContext.jsx";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import "./Login.css";
 
 export default function Login() {
@@ -66,9 +66,9 @@ export default function Login() {
 
       <p className="register-description">
         Don't have an account?{" "}
-        <a className="sign-up-link" href="/register">
+        <Link className="sign-up-link" to="/register">
           Register
-        </a>
+        </Link>
       </p>
     </div>
   );
