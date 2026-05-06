@@ -1,11 +1,15 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { useCart } from "../../context/CartContext.jsx";
 import "./EventDetail.css";
 
 export default function EventDetail() {
   const { id } = useParams();
   const [event, setEvent] = useState(null);
   const [loading, setLoading] = useState(true);
+
+  const [quantity, setQuantity] = useState(1);
+  const { addToCart } = useCart();
 
   useEffect(() => {
     const fetchEvent = async () => {
@@ -25,6 +29,11 @@ export default function EventDetail() {
 
   if (loading) return <p>Loading event details...</p>;
   if (!event) return <p>Event not found.</p>;
+
+  const handleAddToCart = () => {
+    addToCart(event, quantity);
+    alert("Tickets added to cart!");
+  };
 
   return (
     <>
@@ -51,9 +60,29 @@ export default function EventDetail() {
           </p>
         </div>
         <div className="event-about">{event.description}</div>
-        <button className="event-buy-button" type="button">
-          Buy ticket
-        </button>
+
+        <div className="purchase-controls">
+          <div className="quantity-buttons-container">
+            <button
+              className="quantity-btn"
+              disabled={quantity <= 1}
+              onClick={() => setQuantity((q) => Math.max(1, q - 1))}
+            >
+              -
+            </button>
+            <span>{quantity}</span>
+            <button
+              className="quantity-btn"
+              onClick={() => setQuantity((q) => q + 1)}
+            >
+              +
+            </button>
+          </div>
+
+          <button className="add-to-cart-btn" onClick={handleAddToCart}>
+            Add to Cart
+          </button>
+        </div>
       </div>
       <div style={{ height: "40px" }}></div>
     </>

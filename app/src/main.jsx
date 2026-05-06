@@ -8,6 +8,7 @@ import EventDetail from "./components/EventDetail/EventDetail.jsx";
 import Login from "./components/Login/Login.jsx";
 import Register from "./components/Register/Register.jsx";
 import { AuthProvider } from "./context/AuthContext.jsx";
+import { CartProvider } from "./context/CartContext.jsx";
 import "./main.css";
 import "./variables.css";
 // Cart model: cart items are stored in localStorage via CartContext (no backend needed).
@@ -31,7 +32,9 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <AuthProvider>
-      <RouterProvider router={router} />
+      <CartProvider>
+        <RouterProvider router={router} />
+      </CartProvider>
     </AuthProvider>
   </React.StrictMode>,
 );
