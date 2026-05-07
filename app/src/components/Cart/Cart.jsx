@@ -11,27 +11,47 @@ export default function Cart() {
 
   return (
     <div className="cart-page">
-      <h1>Your Cart</h1>
+      <h2 className="cart-title">Your Cart</h2>
       <ul className="cart-list">
         {cartItems.map((item) => (
           <li key={item.id} className="cart-item">
             <div className="item-info">
-              <h3>{item.name}</h3>
+              <h3 className="cart-item-title">{item.name}</h3>
               <p>€{item.price} per ticket</p>
             </div>
-            <div className="item-actions">
-              <button onClick={() => updateQuantity(item.id, -1)}>-</button>
+            <div className="quantity-buttons-container">
+              <button
+                className="quantity-btn"
+                disabled={item.quantity <= 1}
+                onClick={() => updateQuantity(item.id, -1)}
+              >
+                -
+              </button>
               <span>{item.quantity}</span>
-              <button onClick={() => updateQuantity(item.id, 1)}>+</button>
-              <button onClick={() => removeFromCart(item.id)}>Remove</button>
+              <button
+                className="quantity-btn"
+                onClick={() => updateQuantity(item.id, 1)}
+              >
+                +
+              </button>
+              <button
+                className="styled-btn remove-btn"
+                onClick={() => removeFromCart(item.id)}
+              >
+                Remove
+              </button>
             </div>
           </li>
         ))}
       </ul>
       <div className="cart-summary">
-        <h2>Total: €{totalAmount}</h2>
-        <button onClick={clearCart}>Clear All</button>
-        <button className="checkout-btn">Checkout</button>
+        <h3>Total: €{totalAmount}</h3>
+        <div className="summary-btn-container">
+          <button className="styled-btn clear-btn" c onClick={clearCart}>
+            Clear All
+          </button>
+          <button className="styled-btn checkout-btn">Checkout</button>
+        </div>
       </div>
     </div>
   );

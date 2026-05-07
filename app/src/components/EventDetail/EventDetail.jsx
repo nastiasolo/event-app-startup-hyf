@@ -32,7 +32,6 @@ export default function EventDetail() {
 
   const handleAddToCart = () => {
     addToCart(event, quantity);
-    alert("Tickets added to cart!");
   };
 
   return (
