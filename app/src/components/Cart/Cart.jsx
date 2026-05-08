@@ -1,9 +1,12 @@
 import { useCart } from "../../context/CartContext.jsx";
-import { Link } from "react-router-dom";
+import { useAuth } from "../../context/AuthContext.jsx";
+import { useNavigate, Link } from "react-router-dom";
 import cartIcon from "../../assets/shopping-bag.png";
 import "./Cart.css";
 
 export default function Cart() {
+  const { user } = useAuth();
+  const navigate = useNavigate();
   const { cartItems, removeFromCart, updateQuantity, totalAmount, clearCart } =
     useCart();
 
@@ -61,8 +64,19 @@ export default function Cart() {
           <button className="styled-btn clear-btn" c onClick={clearCart}>
             Clear All
           </button>
-          <button className="styled-btn checkout-btn">Checkout</button>
+          <button
+            className="styled-btn checkout-btn"
+            onClick={() => navigate("/checkout")}
+            disabled={!user}
+          >
+            Checkout
+          </button>
         </div>
+        {!user && (
+          <p className="auth-reminder">
+            Please <Link to="/login">login</Link> to proceed to checkout.
+          </p>
+        )}
       </div>
     </div>
   );
