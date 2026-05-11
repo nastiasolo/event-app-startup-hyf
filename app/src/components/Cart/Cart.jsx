@@ -31,8 +31,7 @@ export default function Cart() {
       <div className="cart-page">
         {cartItems.length === 0 ? (
           <>
-            {" "}
-            <img src={cartIcon} alt="shopping cart" className="cart-icon" />
+            <img src={cartIcon} alt="shopping cart" className="icon-big" />
             <h3>Your cart is empty</h3>
             <p>Looks like you haven't added any tickets yet.</p>
             <Link to="/events" className="back-to-events-btn">
@@ -41,7 +40,7 @@ export default function Cart() {
           </>
         ) : (
           <>
-            <img src={cartIcon} alt="shopping cart" className="cart-icon" />
+            <img src={cartIcon} alt="shopping cart" className="icon-big" />
             <h2 className="cart-title">Your cart</h2>
             <ul className="cart-list">
               {cartItems.map((item) => (
@@ -101,7 +100,7 @@ export default function Cart() {
       <div className="cart-page">
         {user && (
           <div className="order-history">
-            <img src={ticketIcon} alt="shopping cart" className="cart-icon" />
+            <img src={ticketIcon} alt="shopping cart" className="icon-big" />
             <h2 className="cart-title">Order History</h2>
             {orders.length > 0 ? (
               <ul className="cart-list">

@@ -15,22 +15,23 @@ export default function Layout() {
     <div className="layout-container">
       <header>
         <nav className="navigation">
-          <a
-            href="https://www.hackyourfuture.dk/"
-            target="_blank"
-            className="link"
-          >
-            <img
-              src={hyfLogo}
-              alt="HackYourFuture logo"
-              className="logo"
-              width={60}
-            />
-          </a>
-          <Link to="/events" className="event-link link">
-            Events
-          </Link>
-
+          <div className="nav-to-the-left">
+            <a
+              href="https://www.hackyourfuture.dk/"
+              target="_blank"
+              className="link"
+            >
+              <img
+                src={hyfLogo}
+                alt="HackYourFuture logo"
+                className="logo"
+                width={60}
+              />
+            </a>
+            <Link to="/events" className="event-link link">
+              Events
+            </Link>
+          </div>
           <div className="nav-to-the-right">
             <Link to="/cart" className="link">
               <div className="cart-icon-container">

@@ -100,3 +100,7 @@
   justify-content: space-between;
   align-items: center;
 }
+
+.icon-big {
+  width: 60px;
+}
