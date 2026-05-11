@@ -97,8 +97,9 @@ export default function Cart() {
           </>
         )}
       </div>
-      <div className="cart-page">
-        {user && (
+
+      {user && (
+        <div className="cart-page">
           <div className="order-history">
             <img src={ticketIcon} alt="shopping cart" className="icon-big" />
             <h2 className="cart-title">Order History</h2>
@@ -126,8 +127,8 @@ export default function Cart() {
               <p>You don't have any past orders yet.</p>
             )}
           </div>
-        )}
-      </div>
+        </div>
+      )}
     </>
   );
 }

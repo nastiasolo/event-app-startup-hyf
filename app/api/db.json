@@ -249,6 +249,29 @@
       "date": "2026-05-11T11:02:35.733Z",
       "status": "completed",
       "id": 3
+    },
+    {
+      "userId": 1,
+      "items": [
+        {
+          "id": 4,
+          "name": "TypeScript Deep Dive",
+          "date": "2026-05-10",
+          "time": "10:00",
+          "venue": "IDA Conference Centre",
+          "city": "Copenhagen",
+          "description": "Go beyond the basics. This workshop covers generics, conditional types, utility types, declaration merging, and integrating TypeScript into large codebases. Prior TypeScript experience required.",
+          "price": 89,
+          "ticketsAvailable": 18,
+          "totalTickets": 25,
+          "category": "Workshop",
+          "quantity": 2
+        }
+      ],
+      "total": 178,
+      "date": "2026-05-11T11:37:42.246Z",
+      "status": "completed",
+      "id": 4
     }
   ]
 }

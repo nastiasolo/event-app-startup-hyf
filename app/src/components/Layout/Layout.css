@@ -49,6 +49,7 @@
 .nav-to-the-right {
   display: flex;
   gap: var(--gap-l);
+  align-items: center;
 }
 
 .user-container {
