@@ -8,6 +8,8 @@ import EventDetail from "./components/EventDetail/EventDetail.jsx";
 import Cart from "./components/Cart/Cart.jsx";
 import Login from "./components/Login/Login.jsx";
 import Register from "./components/Register/Register.jsx";
+import ProtectedRoute from "./components/ProtectedRoute.jsx";
+import Checkout from "./components/Checkout/Checkout.jsx";
 import { AuthProvider } from "./context/AuthContext.jsx";
 import { CartProvider } from "./context/CartContext.jsx";
 import "./main.css";
@@ -27,6 +29,14 @@ const router = createBrowserRouter([
       { path: "cart", element: <Cart /> },
       { path: "login", element: <Login /> },
       { path: "register", element: <Register /> },
+      {
+        path: "checkout",
+        element: (
+          <ProtectedRoute>
+            <Checkout />
+          </ProtectedRoute>
+        ),
+      },
     ],
   },
 ]);

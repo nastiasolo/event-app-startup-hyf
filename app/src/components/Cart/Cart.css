@@ -41,12 +41,13 @@
   border: var(--border-standard);
   border-radius: var(--radius-m);
   cursor: pointer;
-  transition: background-color var(--transition-speed);
+  transition: all var(--transition-speed);
   font-weight: var(--font-weight-bold);
+  padding-inline: 10px;
 }
 
 .styled-btn:not(:disabled):hover {
-  background-color: var(--color-accent-hover);
+  scale: 1.05;
 }
 
 .back-to-events-btn {
@@ -74,7 +75,7 @@
 
 .summary-btn-container {
   display: flex;
-  gap: var(--gap-s);
+  gap: var(--gap-m);
 }
 
 .checkout-btn:disabled {
