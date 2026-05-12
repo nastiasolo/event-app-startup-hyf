@@ -114,7 +114,8 @@ export default function Cart() {
                           order.date || order.createdAt,
                         ).toLocaleDateString()}
                       </p>
-                      <p>{order.items.length} events</p>
+                      {order.items.length}
+                      {order.items.length === 1 ? " ticket" : " tickets"}
                     </div>
                     <div className="item-price">
                       <strong>€{order.total}</strong>
