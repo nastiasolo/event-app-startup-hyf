@@ -46,6 +46,9 @@ export default function Layout() {
             <span className="burger-bar"></span>
             <span className="burger-bar"></span>
             <span className="burger-bar"></span>
+            {cartCount > 0 && (
+              <span className="cart-badge burger-badge">{cartCount}</span>
+            )}
           </button>
 
           <div className={`nav-menu-wrapper ${isMenuOpen ? "open" : ""}`}>
@@ -92,7 +95,7 @@ export default function Layout() {
                   <Link to="/login" className="link" onClick={closeMenu}>
                     Login
                   </Link>
-                  <Link to="/register" className="link" onClick={closeMenu}>
+                  <Link to="/register" className="link">
                     Register
                   </Link>
                 </div>

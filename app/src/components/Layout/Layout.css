@@ -156,6 +156,7 @@
 
   .burger-btn {
     display: flex;
+    position: relative;
   }
 
   .nav-menu-wrapper {
