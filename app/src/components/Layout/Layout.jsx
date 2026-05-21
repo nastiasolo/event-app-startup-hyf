@@ -95,7 +95,7 @@ export default function Layout() {
                   <Link to="/login" className="link" onClick={closeMenu}>
                     Login
                   </Link>
-                  <Link to="/register" className="link">
+                  <Link to="/register" className="link" onClick={closeMenu}>
                     Register
                   </Link>
                 </div>
